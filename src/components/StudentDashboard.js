@@ -13,10 +13,10 @@ import {
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { API } from "../global";
-import CanvasJSReact from "@canvasjs/react-charts";
+// import CanvasJSReact from "@canvasjs/react-charts";
 
 // var CanvasJS = CanvasJSReact.CanvasJS;
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+// var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const StudentDashboard = () => {
   const [student, setStudent] = useState();
@@ -35,60 +35,6 @@ const StudentDashboard = () => {
 };
 
 const StudentCharts = ({ student }) => {
-  const options = {
-    animationEnabled: true,
-    title: {
-      text: "Number of New Customers",
-    },
-    axisY: {
-      title: "Number of Customers",
-    },
-    toolTip: {
-      shared: true,
-    },
-    data: [
-      {
-        type: "spline",
-        name: "2016",
-        showInLegend: true,
-        dataPoints: student.codekata
-      //   dataPoints: [
-      //     { y: 155, label: "Jan" },
-      //     { y: 150, label: "Feb" },
-      //     { y: 152, label: "Mar" },
-      //     { y: 148, label: "Apr" },
-      //     { y: 142, label: "May" },
-      //     { y: 150, label: "Jun" },
-      //     { y: 146, label: "Jul" },
-      //     { y: 149, label: "Aug" },
-      //     { y: 153, label: "Sept" },
-      //     { y: 158, label: "Oct" },
-      //     { y: 154, label: "Nov" },
-      //     { y: 150, label: "Dec" },
-      //   ],
-      },
-      {
-        type: "spline",
-        name: "2017",
-        showInLegend: true,
-        // dataPoints: student.webkata
-        // dataPoints: [
-        //   { y: 172, label: "Jan" },
-        //   { y: 173, label: "Feb" },
-        //   { y: 175, label: "Mar" },
-        //   { y: 172, label: "Apr" },
-        //   { y: 162, label: "May" },
-        //   { y: 165, label: "Jun" },
-        //   { y: 172, label: "Jul" },
-        //   { y: 168, label: "Aug" },
-        //   { y: 175, label: "Sept" },
-        //   { y: 170, label: "Oct" },
-        //   { y: 165, label: "Nov" },
-        //   { y: 169, label: "Dec" },
-        // ],
-      },
-    ],
-  };
   console.log(student.codekata);
   const data = student.codekata;
   const data2 = student.webkata;
@@ -106,9 +52,6 @@ const StudentCharts = ({ student }) => {
         <h1>Dashboard</h1>
       </div>
       <div className="chart">
-      <CanvasJSChart
-            options={options}
-          />
         <div className="kata-chart">
           <h1 className="title">Codekata</h1>
           <BarChart

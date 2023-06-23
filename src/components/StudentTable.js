@@ -13,8 +13,8 @@ import { API } from "../global";
 import "./StudentTable.css";
 import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
+// import EditIcon from "@mui/icons-material/Edit";
+// import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -47,7 +47,7 @@ const checkAuth = (res) => {
 
 const logout = () => {
   sessionStorage.clear();
-  window.location.href="/users/login";
+  window.location.href = "/users/login";
 };
 
 const StudentTable = () => {
@@ -65,10 +65,7 @@ const StudentTable = () => {
   useEffect(() => getStudentDatas(), []);
   console.log(studentDatas);
   return studentDatas ? (
-    <StudentCard
-      studentDatas={studentDatas}
-      setStudentDatas={setStudentDatas}
-    />
+    <StudentCard studentDatas={studentDatas} getStudenDatas={getStudentDatas} />
   ) : (
     <h2 className="table">Loading Table...</h2>
   );
@@ -76,51 +73,18 @@ const StudentTable = () => {
 
 const StudentCard = ({ studentDatas, getStudentDatas }) => {
   const navigate = useNavigate();
-  const deleteStudent = async (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this student"
-    );
-    if (confirmDelete === true) {
-      await fetch(`${API}/studentData/${id}`, {
-        method: "DELETE",
-      });
-      getStudentDatas();
-    }
-  };
+  // const deleteStudent = async (id) => {
+  //   const confirmDelete = window.confirm(
+  //     "Are you sure you want to delete this student"
+  //   );
+  //   if (confirmDelete === true) {
+  //     await fetch(`${API}/studentDatas/${id}`, {
+  //       method: "DELETE",
+  //     });
+  //   }
+  //   getStudentDatas();
+  // };
   return (
-    // <div className="component">
-    //   <div className="card">
-    //     {studentDatas.map((data, index) => (
-    //       <div className="card-two" key={index}>
-    //         <div className="student-details">
-    //           <p className="name">
-    //             <strong>Student Name : </strong>
-    //             {data.studentName}
-    //           </p>
-    //           <p className="batch">
-    //             <strong>Batch : </strong>
-    //             {data.batch}
-    //           </p>
-    //         </div>
-    //         <div className="action">
-    //           <IconButton
-    //             color="primary"
-    //             onClick={() => navigate(`/studentDatas/${data._id}`)}
-    //           >
-    //             <InfoIcon />
-    //           </IconButton>
-    //           <IconButton color="success">
-    //             <EditIcon />
-    //           </IconButton>
-    //           <IconButton color="error">
-    //             <DeleteIcon />
-    //           </IconButton>
-    //         </div>
-    //       </div>
-    //     ))}
-    //   </div>
-    // </div>
-    // ---------------------------------------------------------------------------------------------------
     <div className="table">
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -147,7 +111,7 @@ const StudentCard = ({ studentDatas, getStudentDatas }) => {
                   >
                     <InfoIcon />
                   </IconButton>
-                  <IconButton color="success">
+                  {/* <IconButton color="success">
                     <EditIcon />
                   </IconButton>
                   <IconButton
@@ -155,7 +119,7 @@ const StudentCard = ({ studentDatas, getStudentDatas }) => {
                     onClick={() => deleteStudent(data._id)}
                   >
                     <DeleteIcon />
-                  </IconButton>
+                  </IconButton> */}
                 </StyledTableCell>
               </StyledTableRow>
             ))}
