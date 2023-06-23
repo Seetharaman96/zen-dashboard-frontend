@@ -1,0 +1,51 @@
+.chart-page{
+    padding-top: 110px;
+}
+.title{
+    text-align: center;
+    margin: 10px;
+}
+.chart{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.marks{
+    margin: 10px;
+    width: 400px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    text-align: center;
+}
+.scores{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+.total{
+    height: 100px;
+    background: grey;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.one{
+    padding: 10px;
+}
+.task-chart{
+    margin: 25px;
+    /* display: block; */
+}
+.kata-chart{
+    margin: 25px;
+}
+.average{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

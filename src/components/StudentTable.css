@@ -1,0 +1,31 @@
+.component{
+    padding-top: 110px;
+}
+.card-two{
+    border-radius: 15px;
+    border: 1px solid red;
+    height: auto;
+    width: 300px;
+    text-align: center;
+}
+.card{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.student-details{
+    padding: 5px;
+}
+.action{
+    display: flex;
+    justify-content: space-evenly;
+}
+.name{
+    padding: 5px;
+}
+.batch{
+    padding: 5px;
+}
+.table{
+    padding-top: 110px;
+}
